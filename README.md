@@ -7,9 +7,11 @@
 #### 安装教程
 
 ```
+// 拉取代码
 git clone https://gitee.com/suruibuas/edoc.git
-
-// 进入edoc根目录执行
+// 进入目录
+cd edoc
+// 安装依赖
 npm i
 ```
 
