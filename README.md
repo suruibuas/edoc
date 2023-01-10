@@ -6,11 +6,14 @@
 
 #### 安装教程
 
-1.  git clone 本项目
-2.  cd 项目目录
-3.  npm i
+```
+git clone https://gitee.com/suruibuas/edoc.git
 
-#### 撰写文档
+// 进入edoc根目录执行
+npm i
+```
+
+#### 撰写
 
 npm run dev
 
@@ -22,16 +25,16 @@ npm run build
 
 进入 src/md 目录创建 markdown 文档，目录或者.md 文档前加上序号（1、），左侧栏的目录会按照该序号进行排序
 
-src
-    |-md
-        |-1、开始
-            |- 1、简介.md
-            |- 2、演示.md
-        |-2、开发
-            |- 1、开发规范.md
-            |- 2、环境要求.md
+> - src
+> - |-md
+> - |-1、开始
+> - |- 1、简介.md
+> - |- 2、演示.md
+> - |-2、开发
+> - |- 1、开发规范.md
+> - |- 2、环境要求.md
 
-相关配置文件在：src/config.js 中
+相关配置文件在：`src/config.js` 中
 
 #### 发布
 
