@@ -30,11 +30,15 @@ npm run build
 进入 src/md 目录创建 markdown 文档，目录或者.md 文档前加上序号（1、），左侧栏的目录会按照该序号进行排序
 
 - src
-    - md
-        - 1、开始
-            - 1、概述.md
-            - 2、前期准本.md
-            - 3、开发环境.md
+  - md
+    - 1、开始
+      - 1、概述.md
+      - 2、分析.md
+    - 2、客户端
+      - 1、JAVA.md
+      - 1、JAVA.md
+      - 1、JAVA.md
+      - 1、JAVA.md
 
 相关配置文件在：`src/config.js` 中
 
