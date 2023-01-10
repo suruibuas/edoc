@@ -1,0 +1,78 @@
+/*********************************************************************************
+ ***                     CONFIDENTIAL  ---  SURUI STUDIOS                      ***
+ *********************************************************************************
+ *
+ *                       项目 : Edoc
+ *
+ *                       文件 : header.less
+ *
+ *                       开发 : 苏睿 / 317953536@qq.com
+ *
+ *                       开始 : 2021/11/17
+ *
+ *                       更新 :
+ *
+ *                       说明 : 头部样式
+ *
+ *********************************************************************************/
+
+@import '../var';
+
+header {
+	display: flex;
+	height: 60px;
+	align-items: center;
+	max-width: 1224px;
+	margin: 0 auto;
+	position: sticky;
+	top: 0;
+	background: rgba(25, 26, 31, 0.6);
+	backdrop-filter: blur(8px);
+	transform: translateZ(0);
+	z-index: 1;
+	.logo {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		img {
+			width: 36px;
+			height: 36px;
+		}
+		span {
+			margin-left: 4px;
+			font-size: 20px;
+			font-weight: bold;
+			font-family: Raleway, sans-serif;
+		}
+	}
+	.nav {
+		margin-right: 64px;
+		font-size: 16px;
+		a {
+			margin-left: 32px;
+		}
+		.active {
+			color: lighten(@color-primary, 20%);
+		}
+	}
+	.icon {
+		i {
+			font-size: 24px;
+			margin-left: 12px;
+		}
+	}
+}
+.bg-box {
+	position: absolute;
+	width: 800px;
+	height: 800px;
+	z-index: -1;
+	top: 0;
+	left: 50%;
+	margin-left: -400px;
+	background: radial-gradient(
+		50% 50% at 50% 50%,
+		rgba(117, 43, 236, 0.25) 0,
+		rgba(162, 116, 236, 0) 100%
+	);
+}

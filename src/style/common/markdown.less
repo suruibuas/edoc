@@ -1,0 +1,167 @@
+/*********************************************************************************
+ ***                     CONFIDENTIAL  ---  SURUI STUDIOS                      ***
+ *********************************************************************************
+ *
+ *                       项目 : Edoc
+ *
+ *                       文件 : markdown.less
+ *
+ *                       开发 : 苏睿 / 317953536@qq.com
+ *
+ *                       开始 : 2021/11/22
+ *
+ *                       更新 :
+ *
+ *                       说明 : markdown
+ *
+ *********************************************************************************/
+
+@import '../var';
+
+.doc {
+	color: @color-text-grey;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: @color-text;
+		margin: 24px 0;
+	}
+	h1 {
+		font-size: 32px;
+	}
+	h2 {
+		font-size: 24px;
+	}
+	h3 {
+		font-size: 20px;
+	}
+	h4 {
+		font-size: 18px;
+	}
+	h5 {
+		font-size: 16px;
+	}
+	h6 {
+		font-size: 14px;
+	}
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: normal;
+	}
+	hr {
+		border: 0;
+		margin: 24px 0;
+		border-bottom: 1px dashed @color-form-border;
+	}
+	em {
+		font-style: italic;
+		color: @color-text;
+	}
+	ul {
+		padding-left: 16px;
+		li {
+			display: list-item;
+			line-height: 30px;
+			align-items: center;
+			list-style: disc;
+		}
+	}
+	p {
+		margin-bottom: 20px;
+		line-height: 1.8;
+		strong {
+			color: @color-text;
+			margin: 0 4px;
+		}
+	}
+	img {
+		margin: 8px 0;
+		border-radius: 8px;
+	}
+	pre {
+		border-radius: 4px;
+		background: @color-form-bg;
+		padding: 14px;
+		code {
+			background: none;
+			padding: 0;
+			border-radius: 0;
+		}
+	}
+	blockquote,
+	.error,
+	.notice,
+	.good {
+		padding: 14px;
+		border-left: 6px solid @color-form-border;
+		margin: 0 0 20px 0;
+		background: @color-form-bg;
+		p {
+			margin-bottom: 0;
+			line-height: 2;
+		}
+	}
+	.error {
+		border-left-color: @color-red;
+		background: rgba(250, 34, 86, 0.2) !important;
+		color: lighten(@color-red, 10%) !important;
+	}
+	.notice {
+		border-left-color: @color-yellow;
+		color: lighten(@color-yellow, 10%) !important;
+		background-color: rgba(255, 222, 10, 0.2) !important;
+	}
+	.good {
+		border-left-color: @color-green;
+		color: lighten(@color-green, 10%) !important;
+		background-color: rgba(79, 232, 62, 0.2) !important;
+	}
+	i {
+		margin-right: 4px;
+	}
+	code {
+		background: @color-form-border;
+		padding: 4px 8px;
+		border-radius: 8px;
+		color: @color-text;
+		margin: 0 4px;
+	}
+	a {
+		color: lighten(@color-primary, 20%);
+		margin: 0 4px;
+	}
+	input[type='checkbox'] {
+		margin-right: 4px;
+	}
+	table {
+		border: 2px solid @color-form-border;
+		width: 100%;
+		thead {
+			th {
+				color: @color-text;
+			}
+		}
+		td,
+		th {
+			line-height: 24px;
+			padding: 10px;
+			border-left: 2px solid @color-form-border;
+			border-top: 2px solid @color-form-border;
+			&:first-of-type {
+				width: 240px;
+			}
+		}
+		tr {
+			&:nth-child(odd) {
+				td {
+					background: @color-bg-grey;
+				}
+			}
+		}
+	}
+}

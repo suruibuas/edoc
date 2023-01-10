@@ -1,0 +1,118 @@
+/*********************************************************************************
+ ***                     CONFIDENTIAL  ---  SURUI STUDIOS                      ***
+ *********************************************************************************
+ *
+ *                       项目 : Edoc
+ *
+ *                       文件 : eui.less
+ *
+ *                       开发 : 苏睿 / 317953536@qq.com
+ *
+ *                       开始 : 2021/11/17
+ *
+ *                       更新 :
+ *
+ *                       说明 : 样式全局变量配置文件
+ *
+ *********************************************************************************/
+
+/**
+ * ================= 颜色变量 ==================
+ */
+
+/* 主色 */
+@color-primary: #752bec;
+
+/* 文字相关 */
+
+// 基本色
+@color-text: #fff;
+// 辅助灰色
+@color-text-grey: #aeb8ca;
+// 备注色
+@color-text-note: rbga(255, 255, 255, 0.5);
+
+@color-form-border: #373d4d;
+// 表单背景色
+@color-form-bg: #282c38;
+
+/* 背景相关 */
+
+// 主背景色
+@color-bg: #191a1f;
+// 浅背景色（高亮块）
+@color-bg-grey: #25262a;
+// 遮罩背景色
+@color-bg-mask: rgba(0, 0, 0, 0.4);
+
+// 阴影颜色
+@color-shadow: darken(@color-bg, 5%);
+
+/**
+ * ================= 多元色 ==================
+ */
+
+@color-red: #fa2256;
+@color-blue: #246cf9;
+@color-green: #00ff6e;
+@color-yellow: #ffde00;
+@color-purple: #8548ff;
+@color-pink: #fc3ca9;
+@color-cyan: #00ccea;
+@color-orange: #f86f14;
+
+/**
+ * ================= 尺寸相关 ==================
+ */
+
+// 字体尺寸
+@size-font-sm: 12px;
+@size-font-base: 14px;
+@size-font-lg: 16px;
+
+// 圆角尺寸
+@size-border-radius: 8px;
+
+// 内边距
+@size-padding: 10px;
+
+// 外边距
+@size-margin: 10px;
+
+/**
+ * ================= 其他参数 ==================
+ */
+
+// 透明度
+@alpha: 0.4;
+
+// 动画时长
+@animate-time: 0.25s;
+
+// 阴影大小
+@shadow-size: 10px;
+
+/**
+ * ================= 通用方法 ==================
+ */
+
+// 渐变
+.linear(@color: @color-primary, @to: bottom right) {
+	background-image: linear-gradient(
+		to @to,
+		lighten(@color, 15%),
+		@color
+	) !important;
+}
+
+// 阴影
+.shadow(@color: @color-shadow, @size : 10px) {
+	box-shadow: 0 0 @size @color;
+}
+
+// 文本溢出
+.textOverflow() {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}

@@ -1,0 +1,51 @@
+/*********************************************************************************
+ ***                     CONFIDENTIAL  ---  SURUI STUDIOS                      ***
+ *********************************************************************************
+ *
+ *                       项目 : Edoc
+ *
+ *                       文件 : footer.less
+ *
+ *                       开发 : 苏睿 / 317953536@qq.com
+ *
+ *                       开始 : 2021/11/17
+ *
+ *                       更新 :
+ *
+ *                       说明 : 底部样式
+ *
+ *********************************************************************************/
+
+@import '../var';
+
+footer {
+	color: @color-text-grey;
+	max-width: 1224px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	.links {
+		padding-top: 50px;
+		margin-top: 50px;
+		font-size: 16px;
+		border-top: 2px #27282e solid;
+		text-align: center;
+		a {
+			margin: 0 12px;
+		}
+	}
+	.info {
+		text-align: center;
+		margin-top: 50px;
+		font-size: @size-font-lg;
+		.beian {
+			margin: 0 40px;
+		}
+		.hl {
+			color: lighten(@color-primary, 10%);
+			font-weight: bold;
+		}
+	}
+	a {
+		color: @color-text-grey;
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		// 模块解析策略，ts默认用node的解析策略，即相对的方式导入
+		"moduleResolution": "Node",
+		"target": "ESNext",
+		"module": "ESNext",
+		"checkJs": false,
+		"baseUrl": "./",
+		// svelte需要用到该配置
+		"importsNotUsedAsValues": "error",
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		// 指定相对于baseUrl选项计算的路径映射，使用webpack别名，智能感知路径
+		"paths": {
+			"@/*": ["src"]
+		}
+	},
+	"include": ["src/**/*.js", "src/**/*.svelte", "src/**/*.md"],
+	"exclude": ["node_modeules", "dist"]
+}

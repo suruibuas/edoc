@@ -1,0 +1,102 @@
+/*********************************************************************************
+ ***                     CONFIDENTIAL  ---  SURUI STUDIOS                      ***
+ *********************************************************************************
+ *
+ *                       项目 : Edoc
+ *
+ *                       文件 : scroll.less
+ *
+ *                       开发 : 苏睿 / 317953536@qq.com
+ *
+ *                       开始 : 2021/11/22
+ *
+ *                       更新 :
+ *
+ *                       说明 : 滚动条
+ *
+ *********************************************************************************/
+
+@import '../var';
+
+.ps {
+	overflow: hidden;
+	overflow-anchor: none;
+	touch-action: auto;
+}
+.ps__rail-x {
+	display: none;
+	opacity: 0;
+	transition: background-color @animate-time ease, opacity @animate-time ease;
+	height: 8px;
+	bottom: 0;
+	position: absolute;
+}
+.ps__rail-y {
+	display: none;
+	opacity: 0;
+	transition: background-color @animate-time ease, opacity @animate-time ease;
+	width: 8px;
+	right: 0;
+	position: absolute;
+	z-index: 2;
+}
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+	display: block;
+	background-color: transparent;
+}
+.ps--focus > .ps__rail-x,
+.ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x,
+.ps--scrolling-y > .ps__rail-y {
+	opacity: @alpha + 0.1;
+}
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+	opacity: @alpha + 0.1;
+}
+.ps__thumb-x {
+	.shadow();
+	background-color: lighten(@color-bg-grey, 20%);
+	border-radius: 50px;
+	transition: background-color @animate-time ease,
+		height @animate-time ease-in-out;
+	height: 8px;
+	bottom: 0px;
+	position: absolute;
+}
+.ps__thumb-y {
+	.shadow();
+	background-color: lighten(@color-bg-grey, 20%);
+	border-radius: 50px;
+	transition: background-color @animate-time ease,
+		width @animate-time ease-in-out;
+	width: 8px;
+	right: 0;
+	position: absolute;
+}
+.ps__rail-x:hover > .ps__thumb-x,
+.ps__rail-x:focus > .ps__thumb-x,
+.ps__rail-x.ps--clicking .ps__thumb-x {
+	background-color: lighten(@color-bg-grey, 20%);
+}
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+	width: 8px;
+	background-color: lighten(@color-bg-grey, 20%);
+}
+@supports (-ms-overflow-style: none) {
+	.ps {
+		overflow: auto !important;
+	}
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.ps {
+		overflow: auto !important;
+	}
+}

@@ -1,0 +1,204 @@
+/*********************************************************************************
+ ***                     CONFIDENTIAL  ---  SURUI STUDIOS                      ***
+ *********************************************************************************
+ *
+ *                       项目 : Edoc
+ *
+ *                       文件 : layout.less
+ *
+ *                       开发 : 苏睿 / 317953536@qq.com
+ *
+ *                       开始 : 2021/11/22
+ *
+ *                       更新 :
+ *
+ *                       说明 : 基础布局文件
+ *
+ *********************************************************************************/
+
+@import '../var';
+
+.intro {
+	max-width: 1224px;
+	margin: 0 auto;
+	margin-top: 48px;
+}
+.block-box {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -@size-padding;
+	.block {
+		background: @color-bg-grey;
+		border-radius: 8px;
+		padding: @size-padding * 2;
+		i {
+			font-size: 24px;
+			background: @color-bg;
+			padding: 8px;
+			border-radius: 8px;
+		}
+		h4 {
+			font-size: 16px;
+			margin-bottom: 8px;
+		}
+		h6 {
+			margin: 8px 0;
+			color: @color-text-grey;
+			font-weight: normal;
+			font-size: 14px;
+		}
+	}
+}
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+	position: relative;
+	width: 100%;
+	padding: @size-padding;
+}
+.col-1 {
+	flex: 0 0 8.3333333333%;
+	max-width: 8.3333333333%;
+}
+.col-2 {
+	flex: 0 0 16.6666666667%;
+	max-width: 16.6666666667%;
+}
+.col-3 {
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+.col-4 {
+	flex: 0 0 33.3333333333%;
+	max-width: 33.3333333333%;
+}
+.col-5 {
+	flex: 0 0 41.6666666667%;
+	max-width: 41.6666666667%;
+}
+.col-6 {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+.col-7 {
+	flex: 0 0 58.3333333333%;
+	max-width: 58.3333333333%;
+}
+.col-8 {
+	flex: 0 0 66.6666666667%;
+	max-width: 66.6666666667%;
+}
+.col-9 {
+	flex: 0 0 75%;
+	max-width: 75%;
+}
+.col-10 {
+	flex: 0 0 83.3333333333%;
+	max-width: 83.3333333333%;
+}
+.col-11 {
+	flex: 0 0 91.6666666667%;
+	max-width: 91.6666666667%;
+}
+.col-12 {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+@media screen and (max-width: 1200px) {
+	.col-1 {
+		flex: 0 0 16.6666666667%;
+		max-width: 16.6666666667%;
+	}
+	.col-11 {
+		flex: 0 0 83.3333333333%;
+		max-width: 83.3333333333%;
+	}
+}
+@media screen and (max-width: 992px) {
+	.col-1 {
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+	.col-2,
+	.col-3,
+	.col-4 {
+		flex: 0 0 33.3333333333%;
+		max-width: 33.3333333333%;
+	}
+	.col-5,
+	.col-6,
+	.col-7 {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.col-8,
+	.col-9,
+	.col-10 {
+		flex: 0 0 66.6666666667%;
+		max-width: 66.6666666667%;
+	}
+	.col-11 {
+		flex: 0 0 75%;
+		max-width: 75%;
+	}
+}
+@media screen and (max-width: 768px) {
+	.col-1,
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5,
+	.col-6,
+	.col-7,
+	.col-8,
+	.col-9,
+	.col-10,
+	.col-11 {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+}
+@media screen and (max-width: 576px) {
+	.col-1,
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5,
+	.col-6,
+	.col-7,
+	.col-8,
+	.col-9,
+	.col-10,
+	.col-11,
+	.col-12 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+.whole {
+	max-width: 100% !important;
+	padding: 0 40px;
+}
+
+.mt0 {
+	margin-top: 0 !important;
+}
+.ml20 {
+	margin-left: 20px;
+}
+.ml40 {
+	margin-left: 40px;
+}
+.ml60 {
+	margin-left: 60px;
+}

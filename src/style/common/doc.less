@@ -1,0 +1,90 @@
+/*********************************************************************************
+ ***                     CONFIDENTIAL  ---  SURUI STUDIOS                      ***
+ *********************************************************************************
+ *
+ *                       项目 : Edoc
+ *
+ *                       文件 : doc.less
+ *
+ *                       开发 : 苏睿 / 317953536@qq.com
+ *
+ *                       开始 : 2021/11/22
+ *
+ *                       更新 :
+ *
+ *                       说明 : 文档
+ *
+ *********************************************************************************/
+
+@import '../var';
+
+#doc {
+	max-width: 1224px;
+	margin: 32px auto;
+	display: flex;
+	.menu {
+		width: 240px;
+		padding-right: 24px;
+		font-size: 16px;
+		color: @color-text-grey;
+		div {
+			margin: 4px 0;
+			padding-left: 24px;
+			line-height: 32px;
+			span {
+				display: flex;
+				align-items: center;
+				padding-left: 24px;
+				cursor: pointer;
+				transition: @animate-time ease;
+				a {
+					display: inline-block;
+					width: 100%;
+				}
+				i {
+					font-size: 20px;
+					margin-right: 4px;
+					display: none;
+				}
+			}
+		}
+		> div {
+			padding-left: 0;
+		}
+		.dir {
+			> div {
+				display: none;
+			}
+			> span {
+				padding-left: 0;
+				i {
+					display: inline-block;
+				}
+			}
+			.show {
+				display: block;
+				line-height: 32px;
+			}
+			.open {
+				i {
+					transform: rotate(90deg);
+				}
+			}
+		}
+		.current {
+			background-color: rgba(117, 43, 236, 0.2);
+			border-radius: @size-border-radius;
+			span {
+				a {
+					color: lighten(@color-primary, 20%);
+				}
+			}
+		}
+	}
+	.doc {
+		flex: 1;
+		padding-left: 24px;
+		font-size: 16px;
+		line-height: 28px;
+	}
+}
