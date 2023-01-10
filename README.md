@@ -32,7 +32,7 @@ npm run build
 | 目录  |
 |---|
 | src  |
-|  |- md  |
+|  \|- md  |
 
 
 相关配置文件在：`src/config.js` 中
