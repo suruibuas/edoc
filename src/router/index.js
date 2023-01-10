@@ -5,9 +5,6 @@ export const routes = {
 	'/': wrap({
 		asyncComponent: () => import('@/views/Home.svelte'),
 	}),
-	'/install': wrap({
-		asyncComponent: () => import('@/views/Install.svelte'),
-	}),
 	'/doc': doc,
 	'/doc/*': doc,
 	'/auth': wrap({
