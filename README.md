@@ -36,9 +36,9 @@ npm run build
       - 2、分析.md
     - 2、客户端
       - 1、JAVA.md
-      - 1、JAVA.md
-      - 1、JAVA.md
-      - 1、JAVA.md
+      - 2、GO.md
+      - 3、PHP.md
+      - 4、PYTHON.md
 
 相关配置文件在：`src/config.js` 中
 
