@@ -25,7 +25,7 @@
 			{/each}
 			<div class="btn">
 				<a href="#/doc/概述">开始使用</a>
-				<a href="#/auth">获取授权</a>
+				<a href="#/doc/演示">查看演示</a>
 			</div>
 		</div>
 	</section>

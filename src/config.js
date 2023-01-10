@@ -1,6 +1,6 @@
 export default {
 	// 项目名称
-	name: 'Eui',
+	name: 'Edoc',
 	// 导航菜单
 	nav: [
 		{
@@ -11,31 +11,23 @@ export default {
 			name: '文档',
 			url: '#/doc/概述',
 		},
-		{
-			name: '演示',
-			url: 'http://demo.eui6.com',
-		},
-		{
-			name: '授权',
-			url: '#/auth',
-		},
 	],
 	// github地址
-	github: 'https://github.com/suruibuas/eui',
+	github: 'https://github.com/suruibuas/edoc',
 	// 加群链接（自行从QQ群设置处获取）
-	qqgroup: 'https://jq.qq.com/?_wv=1027&k=XTdYAgaM',
+	qqgroup: 'https://jq.qq.com/?_wv=1027&k=kRBrkCWk',
 	// 是否需要微信
-	wechat: true,
+	wechat: false,
 	// 首页标语设置
 	info: {
 		// 大标题
-		bigTitle: 'EUI - 无需任何打包环境开箱即用的后台UI框架',
+		bigTitle: 'EDOC - 基于markdown的在线文档编写工具',
 		// 一句话概括标题
-		slogan: '原生JS开发，尘世中的一股清流~',
+		slogan: '文档编写就是这么简单~',
 		// 简介
 		description: [
-			'风格高度统一的UI组件，极简的开发体验',
-			'前后端分离 + 36款组件 + 按钮级权限控制 + 暗黑模式',
+			'基于svelte开发的高性能的文档编写工具',
+			'会写markdown就可以编写在线文档，没有其他学习成本',
 		],
 	},
 	// 是否需要预览图
@@ -80,7 +72,7 @@ export default {
 		},
 	],
 	// 版权
-	copyright: '©2022 Eui All Rights Reserved',
+	copyright: '©2022 Edoc All Rights Reserved',
 	// 备案号
-	beian: '皖ICP备2022007682号-1',
+	beian: 'xxx-xxx-xxx',
 };
