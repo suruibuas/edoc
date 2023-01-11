@@ -23,9 +23,11 @@
 	margin: 32px auto;
 	display: flex;
 	position: relative;
+	> .ps {
+		flex-shrink: 0;
+	}
 	.menu {
-		width: 240px;
-		padding-right: 24px;
+		width: 210px;
 		font-size: 16px;
 		color: @color-text-grey;
 		div {
@@ -87,6 +89,7 @@
 		padding-left: 16px;
 		font-size: 16px;
 		line-height: 28px;
+		min-width: 560px;
 		> .ps {
 			padding-right: 16px;
 		}
@@ -97,6 +100,7 @@
 		border-left: 1px @color-form-border dashed;
 		padding-left: 16px;
 		margin-left: 4px;
+		flex-shrink: 0;
 		p {
 			margin: 16px 0;
 			cursor: pointer;

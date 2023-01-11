@@ -94,5 +94,8 @@
 	:global(.hljs-comment) {
 		color: #999;
 		font-size: 14px;
+		word-wrap: break-word;
+		word-break: break-all;
+		white-space: pre-wrap;
 	}
 </style>
