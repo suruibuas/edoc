@@ -11,6 +11,10 @@
 
 	const page = 'doc';
 	const boxHeight = window.innerHeight - 124;
+	let docMain = {};
+	let sidebar = [];
+	let sideNum = -1;
+	let h3 = [];
 	const _location = `#${decodeURIComponent($location)}`;
 
 	export let params = {};
@@ -38,8 +42,19 @@
 	}
 
 	function loaded(scroll, dom) {
+		docMain = dom;
 		dom.scrollTop = 0;
 		scroll.update();
+		sidebar = [];
+		h3 = document.querySelectorAll('h3');
+		h3.forEach((item, key) => {
+			sidebar[key] = item.innerHTML;
+		});
+	}
+
+	function handleJump(index) {
+		docMain.scrollTop = h3[index].offsetTop;
+		sideNum = index;
 	}
 </script>
 
@@ -58,6 +73,20 @@
 		<Scroll height={boxHeight} let:obj let:dom>
 			<Router {routes} prefix="/doc" on:routeLoaded={loaded(obj, dom)} />
 		</Scroll>
+	</div>
+
+	<div class="side">
+		{#each sidebar as name, index}
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<p
+				class:current={sideNum == index}
+				on:click={() => {
+					handleJump(index);
+				}}
+			>
+				{name}
+			</p>
+		{/each}
 	</div>
 </div>
 

@@ -74,5 +74,5 @@ export default {
 	// 版权
 	copyright: '©2022 Edoc All Rights Reserved',
 	// 备案号
-	beian: 'xxx-xxx-xxx',
+	beian: '皖ICP备2022007682号-1',
 };

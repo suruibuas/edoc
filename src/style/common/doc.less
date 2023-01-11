@@ -22,6 +22,7 @@
 	max-width: 1224px;
 	margin: 32px auto;
 	display: flex;
+	position: relative;
 	.menu {
 		width: 240px;
 		padding-right: 24px;
@@ -83,8 +84,26 @@
 	}
 	.doc {
 		flex: 1;
-		padding-left: 24px;
+		padding-left: 16px;
 		font-size: 16px;
 		line-height: 28px;
+		> .ps {
+			padding-right: 16px;
+		}
+	}
+	.side {
+		width: 160px;
+		position: sticky;
+		border-left: 1px @color-form-border dashed;
+		padding-left: 16px;
+		margin-left: 4px;
+		p {
+			margin: 16px 0;
+			cursor: pointer;
+			color: @color-text-grey;
+		}
+		.current {
+			color: lighten(@color-primary, 20%);
+		}
 	}
 }

@@ -26,7 +26,9 @@
 			{conf['beian']}
 		</a>
 		本文档使用
-		<a href="" class="hl" target="_blank" rel="noreferrer">edoc</a>
+		<a href="http://edoc.eui6.com" class="hl" target="_blank" rel="noreferrer">
+			edoc
+		</a>
 		搭建
 	</div>
 </footer>
