@@ -1,9 +1,18 @@
 <script>
+	import _ from 'lodash';
 	import PerfectScrollbar from 'perfect-scrollbar';
 	import '@/style/common/scroll.less';
-	import { onMount, afterUpdate, onDestroy } from 'svelte';
+	import {
+		onMount,
+		afterUpdate,
+		onDestroy,
+		createEventDispatcher,
+	} from 'svelte';
+
+	const dispatch = createEventDispatcher();
 
 	export let height = window.innerHeight;
+	export let listen = false;
 
 	let dom;
 	let obj;
@@ -14,6 +23,15 @@
 		obj = new PerfectScrollbar(dom, {
 			suppressScrollX: true,
 		});
+		if (!listen) return;
+		dom.addEventListener(
+			'ps-scroll-y',
+			_.debounce(() => {
+				dispatch('scroll', {
+					scrollTop: _.ceil(dom.scrollTop),
+				});
+			}, 100)
+		);
 	});
 
 	afterUpdate(() => {
@@ -23,6 +41,8 @@
 	onDestroy(() => {
 		obj.destroy();
 		obj = null;
+		if (!listen) return;
+		dom.removeEventListener('ps-scroll-y', () => {});
 	});
 </script>
 

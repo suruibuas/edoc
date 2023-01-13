@@ -7,15 +7,19 @@
 	import menu from '@/menu.js';
 	import { location } from 'svelte-spa-router';
 	import '@/style/common/markdown.less';
-	import 'highlight.js/styles/monokai-sublime.css';
+	import 'highlight.js/styles/github-dark.css';
 
-	const page = 'doc';
-	const boxHeight = window.innerHeight - 124;
 	let docMain = {};
 	let sidebar = [];
 	let sideNum = -1;
 	let h3 = [];
+	let sideDom;
+
+	const page = 'doc';
+	const boxHeight = window.innerHeight - 124;
 	const _location = `#${decodeURIComponent($location)}`;
+
+	$: sideTop = sideNum == 0 ? 16 : sideNum * 32 + 16;
 
 	export let params = {};
 	console.log(params);
@@ -56,6 +60,18 @@
 		docMain.scrollTop = h3[index].offsetTop;
 		sideNum = index;
 	}
+
+	function handleSide(e) {
+		let key = 0;
+		for (let item of h3) {
+			if (e.detail.scrollTop < item.offsetTop) {
+				sideNum = key - 1;
+				return;
+			}
+			key++;
+		}
+		sideNum = h3.length - 1;
+	}
 </script>
 
 <!-- 顶部 -->
@@ -70,7 +86,13 @@
 	</Scroll>
 
 	<div class="doc">
-		<Scroll height={boxHeight} let:obj let:dom>
+		<Scroll
+			height={boxHeight}
+			listen={true}
+			let:obj
+			let:dom
+			on:scroll={handleSide}
+		>
 			<Router {routes} prefix="/doc" on:routeLoaded={loaded(obj, dom)} />
 		</Scroll>
 	</div>
@@ -87,6 +109,12 @@
 				{name}
 			</p>
 		{/each}
+		<div
+			bind:this={sideDom}
+			class="hl"
+			class:show={sideNum > -1}
+			style="top: {sideTop}px;"
+		/>
 	</div>
 </div>
 

@@ -99,16 +99,34 @@
 		width: 160px;
 		position: sticky;
 		border-left: 1px @color-form-border dashed;
-		padding-left: 16px;
+		padding: 16px 0 0 16px;
 		margin-left: 4px;
 		flex-shrink: 0;
+		position: relative;
 		p {
 			margin: 16px 0;
 			cursor: pointer;
 			color: @color-text-grey;
+			&:nth-of-type(1) {
+				margin-top: 0;
+			}
 		}
 		.current {
 			color: lighten(@color-primary, 20%);
+		}
+		.hl {
+			opacity: 0;
+			width: 4px;
+			height: 16px;
+			position: absolute;
+			top: 0;
+			left: -2px;
+			background: @color-primary;
+			border-radius: 50px;
+			transition: @animate-time ease;
+		}
+		.show {
+			opacity: 1;
 		}
 	}
 }
