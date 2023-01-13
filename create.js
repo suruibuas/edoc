@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import * as R from 'ramda';
+import _ from 'lodash';
 
 export default function create() {
 	const mdDir = path.resolve('src/md');
@@ -30,13 +30,13 @@ export default function create() {
 		data.sort((a, b) => parseInt(a.name) - parseInt(b.name));
 		data.forEach((item) => {
 			const tmp = item;
-			let name = R.replace(/([0-9]+)、/, '', tmp.name);
-			name = R.replace('.md', '', name);
+			let name = _.replace(tmp.name, /([0-9]+)、/, '');
+			name = _.replace(name, '.md', '');
 			if (item.child.length > 0) sortDir(item.child);
 			else if (tmp.name.endsWith('.md')) {
 				tmp.href = `#/doc/${name}`;
-				let href = R.replace(mdDir, '', tmp.dir);
-				href = R.replace('\\', '/', href);
+				let href = _.replace(tmp.dir, mdDir, '');
+				href = _.replace(href, '\\', '/');
 				routeData[`/${encodeURIComponent(name)}`] = `@/md${href}/${tmp.name}`;
 			}
 			tmp.name = name;
