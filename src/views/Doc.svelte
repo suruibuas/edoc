@@ -1,4 +1,7 @@
 <script>
+	import { getContext } from 'svelte';
+	import { fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import Router from 'svelte-spa-router';
 	import Header from '@/components/Header.svelte';
 	import Menu from '@/components/Menu.svelte';
@@ -14,9 +17,11 @@
 	let sideNum = -1;
 	let h3 = [];
 	let sideDom;
+	let isMobile = getContext('mobile');
+	let boxHeight = window.innerHeight - 124;
+	let menuShow = isMobile ? false : true;
 
 	const page = 'doc';
-	const boxHeight = window.innerHeight - 124;
 	const _location = `#${decodeURIComponent($location)}`;
 
 	$: sideTop = sideNum == 0 ? 16 : sideNum * 32 + 16;
@@ -50,10 +55,13 @@
 		dom.scrollTop = 0;
 		scroll.update();
 		sidebar = [];
-		h3 = document.querySelectorAll('h3');
+		h3 = dom.querySelectorAll('h3');
 		h3.forEach((item, key) => {
 			sidebar[key] = item.innerHTML;
 		});
+		if (isMobile) {
+			menuShow = false;
+		}
 	}
 
 	function handleJump(index) {
@@ -72,18 +80,47 @@
 		}
 		sideNum = h3.length - 1;
 	}
+
+	function handleOpenMenu() {
+		menuShow = !menuShow;
+	}
+
+	function handleGoTop() {
+		docMain.scrollTop = 0;
+	}
 </script>
 
 <!-- 顶部 -->
 <Header {page} />
 
+{#if isMobile}
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div class="open-menu">
+		<div on:click={handleOpenMenu}>
+			<i class="ri-menu-unfold-line" />
+			展开目录
+		</div>
+		<div on:click={handleGoTop}>返回顶部</div>
+	</div>
+{/if}
+
 <!-- 文档主体 -->
 <div id="doc" class="whole">
-	<Scroll height={boxHeight}>
-		<div class="menu">
-			<Menu data={menu} />
-		</div>
-	</Scroll>
+	{#if menuShow}
+		<Scroll height={boxHeight}>
+			<div
+				class="menu"
+				transition:fly={{
+					duration: isMobile ? 200 : 0,
+					x: -200,
+					opacity: 0,
+					easing: quintOut,
+				}}
+			>
+				<Menu data={menu} />
+			</div>
+		</Scroll>
+	{/if}
 
 	<div class="doc">
 		<Scroll
@@ -97,25 +134,27 @@
 		</Scroll>
 	</div>
 
-	<div class="side">
-		{#each sidebar as name, index}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<p
-				class:current={sideNum == index}
-				on:click={() => {
-					handleJump(index);
-				}}
-			>
-				{name}
-			</p>
-		{/each}
-		<div
-			bind:this={sideDom}
-			class="hl"
-			class:show={sideNum > -1}
-			style="top: {sideTop}px;"
-		/>
-	</div>
+	{#if !isMobile}
+		<div class="side">
+			{#each sidebar as name, index}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<p
+					class:current={sideNum == index}
+					on:click={() => {
+						handleJump(index);
+					}}
+				>
+					{name}
+				</p>
+			{/each}
+			<div
+				bind:this={sideDom}
+				class="hl"
+				class:show={sideNum > -1}
+				style="top: {sideTop}px;"
+			/>
+		</div>
+	{/if}
 </div>
 
 <style lang="less">
