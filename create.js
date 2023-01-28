@@ -52,21 +52,23 @@ export default function create() {
 
 	// 生成路由doc.js文件
 	const route = `
-		import { wrap } from 'svelte-spa-router/wrap';
+	import { wrap } from 'svelte-spa-router/wrap';
+	import Loading from '@/components/Loading.svelte';
 
-		export const routes = {
-			${(() => {
-				let html = '';
-				Object.entries(routeData).forEach((item) => {
-					html += `
-						'${item[0]}': wrap({
-							asyncComponent: () => import('${item[1]}'),
-						}),
-					`;
-				});
-				return html;
-			})()}
-		};
+	export const routes = {
+		${(() => {
+			let html = '';
+			Object.entries(routeData).forEach((item) => {
+				html += `
+					'${item[0]}': wrap({
+						asyncComponent: () => import('${item[1]}'),
+						loadingComponent: Loading,
+					}),
+				`;
+			});
+			return html;
+		})()}
+	};
 	`;
 	fs.writeFile('./src/router/doc.js', route, (err) => {
 		console.log(`文档路由：更新${err ? '失败' : '成功'}`);
