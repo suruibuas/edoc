@@ -15,7 +15,7 @@ export default function create() {
 				child: [],
 				dir,
 			});
-			const nowDir = `${dir}\\${item}`;
+			const nowDir = `${dir}${path.sep}${item}`;
 			const stat = fs.statSync(nowDir);
 			if (stat.isDirectory()) {
 				readDir(nowDir, parent[i].child);
